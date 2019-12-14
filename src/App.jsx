@@ -1,9 +1,13 @@
 import React from 'react';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div>
-      <h1>memory game</h1>
+      <Navigation />
+
+      <Footer />
     </div>
   );
 }
