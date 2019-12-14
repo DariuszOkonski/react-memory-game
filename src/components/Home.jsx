@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
-
 const Home = () => {
   return (
     <div className="jumbotron bg-secondary text-light">
