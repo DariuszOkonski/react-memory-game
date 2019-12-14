@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
       <div className="container">
 
         <NavLink className="navbar-brand" exact to="/">DazzDev</NavLink>
