@@ -17,8 +17,12 @@ function App() {
         <section style={{ backgroundColor: 'yellow' }} className="container mt-4">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/game" component={Game} />
-            <Route path="/about" component={About} />
+            <Route exact path="/game" component={() => <Game cards={0} />} />
+            <Route exact path="/game/eight" component={() => <Game cards={8} />} />
+            <Route exact path="/game/twelwe" component={() => <Game cards={12} />} />
+            <Route exact path="/game/sixteen" component={() => <Game cards={16} />} />
+            <Route exact path="/game/twenty" component={() => <Game cards={20} />} />
+            <Route exact path="/about" component={About} />
             <Route component={Error} />
           </Switch>
         </section>
