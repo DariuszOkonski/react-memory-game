@@ -16,6 +16,7 @@ class Boxes extends Component {
 
   openCards = (id, color) => {
     // console.log(`id: ${id} - color: ${color}`);
+    this.props.increaseSteps();
     this.openFirstCard(id, color);
 
     if (this.state.firstOpen) {
