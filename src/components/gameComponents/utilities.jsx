@@ -10,15 +10,24 @@ const createBoxes = (boxesNumber) => {
     boxesArr.push({ id: uuid(), color: colors[index] });
   }
 
+  // return shuffle(boxesArr);
   return boxesArr;
 }
 
-const mixBoxes = (arr) => {
-  let tempArr = [];
+const shuffle = (arr) => {
+  let currentIndex = arr.length;
+  let temporaryValue;
+  let randomIndex = 0;
 
-  while (arr.length !== 0) {
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
+    temporaryValue = arr[currentIndex];
+    arr[currentIndex] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
   }
+  return arr;
 }
 
 export { createBoxes };
