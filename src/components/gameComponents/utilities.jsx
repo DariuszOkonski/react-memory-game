@@ -6,8 +6,8 @@ const createBoxes = (boxesNumber) => {
   let boxesArr = [];
 
   for (let index = 0; index < boxesNumber / 2; index++) {
-    boxesArr.push({ id: uuid(), color: colors[index] });
-    boxesArr.push({ id: uuid(), color: colors[index] });
+    boxesArr.push({ id: uuid(), color: colors[index], displayBg: true, clickable: true, visible: true });
+    boxesArr.push({ id: uuid(), color: colors[index], displayBg: true, clickable: true, visible: true });
   }
 
   // return shuffle(boxesArr);
