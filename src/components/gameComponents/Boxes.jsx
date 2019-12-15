@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import Box from './Box';
 import { createBoxes } from './utilities';
+import ButtonReset from './ButtonReset';
 
 const timeSpan = 1500;
 class Boxes extends Component {
@@ -12,6 +13,19 @@ class Boxes extends Component {
     secondColor: '',
     counter: 0,
     endGame: false,
+  }
+
+  restartGame = () => {
+    this.setState({
+      boxesArr: createBoxes(this.props.cards),
+      firstOpen: false,
+      secondOpen: false,
+      firstColor: '',
+      secondColor: '',
+      counter: 0,
+      endGame: false,
+    })
+
   }
 
   openCards = (id, color) => {
@@ -147,16 +161,23 @@ class Boxes extends Component {
             </div>
           </div>
           :
-          <div className="playBoard">
-            {
-              this.state.boxesArr.map(box =>
-                <Box
-                  key={box.id}
-                  {...box}
-                  openCards={this.openCards}
-                />)
-            }
-          </div>)
+          <div>
+
+            <div className="playBoard">
+              {
+                this.state.boxesArr.map(box =>
+                  <Box
+                    key={box.id}
+                    {...box}
+                    openCards={this.openCards}
+                  />)
+              }
+            </div>
+            <ButtonReset
+              restartGame={this.restartGame}
+            />
+          </div>
+        )
     );
   }
 }

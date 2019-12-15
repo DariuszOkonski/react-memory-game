@@ -1,17 +1,13 @@
 import React from 'react';
 
-const ButtonReset = ({ cards }) => {
+const ButtonReset = ({ restartGame }) => {
   return (
-    cards === 0
-      ?
-      null
-      :
-      <div className="text-center mt-4">
-        <button
-          className="btn btn-secondary btn-sm"
-          onClick={() => window.location.reload()}
-        >Reset Game</button>
-      </div>
+    <div className="text-center mt-4">
+      <button
+        className="btn btn-secondary btn-sm"
+        onClick={restartGame}
+      >Reset Game</button>
+    </div>
   );
 }
 

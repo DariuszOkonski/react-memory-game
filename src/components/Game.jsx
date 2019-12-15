@@ -20,8 +20,6 @@ const Game = ({ cards }) => {
         cards={cards}
         increaseSteps={handleIncreaseSteps}
       />
-
-      <ButtonReset cards={cards} />
     </div>
   );
 }
