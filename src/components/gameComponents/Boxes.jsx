@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Box from './Box';
 import { createBoxes } from './utilities';
 
+const timeSpan = 1500;
 class Boxes extends Component {
   state = {
     boxesArr: createBoxes(this.props.cards),
@@ -66,12 +67,48 @@ class Boxes extends Component {
     })
   }
 
+  handleEqualColors = () => {
+    let boxesArr = [...this.state.boxesArr];
+    boxesArr.forEach(box => {
+      if (box.color === this.state.firstColor)
+        box.visible = false;
+      else
+        box.clickable = true;
+    });
+
+    this.setState({
+      boxesArr,
+      firstOpen: false,
+      secondOpen: false,
+      firstColor: '',
+      secondColor: '',
+    })
+  }
+
+  handleNotEqualColors = () => {
+    let boxesArr = [...this.state.boxesArr];
+    boxesArr.forEach(box => {
+      if (box.visible) {
+        box.clickable = true;
+        box.displayBg = true;
+      }
+    })
+
+    this.setState({
+      boxesArr,
+      firstOpen: false,
+      secondOpen: false,
+      firstColor: '',
+      secondColor: '',
+    })
+  }
+
   componentDidUpdate() {
     if (this.state.firstOpen && this.state.secondOpen) {
       if (this.state.firstColor === this.state.secondColor) {
-        console.log('colors are equal');
+        setTimeout(this.handleEqualColors, timeSpan);
       } else {
-        console.log('colors are not equal');
+        setTimeout(this.handleNotEqualColors, timeSpan);
       }
     }
   }
