@@ -10,6 +10,8 @@ class Boxes extends Component {
     secondOpen: false,
     firstColor: '',
     secondColor: '',
+    counter: 0,
+    endGame: false,
   }
 
   openCards = (id, color) => {
@@ -76,13 +78,14 @@ class Boxes extends Component {
         box.clickable = true;
     });
 
-    this.setState({
+    this.setState(prevState => ({
       boxesArr,
       firstOpen: false,
       secondOpen: false,
       firstColor: '',
       secondColor: '',
-    })
+      counter: prevState.counter + 2,
+    }))
   }
 
   handleNotEqualColors = () => {
@@ -103,6 +106,15 @@ class Boxes extends Component {
     })
   }
 
+  isEndGame = () => {
+    if (this.state.counter === this.props.cards && this.state.endGame === false) {
+      console.log('End of a Game');
+      this.setState({
+        endGame: true,
+      })
+    }
+  }
+
   componentDidUpdate() {
     if (this.state.firstOpen && this.state.secondOpen) {
       if (this.state.firstColor === this.state.secondColor) {
@@ -111,30 +123,42 @@ class Boxes extends Component {
         setTimeout(this.handleNotEqualColors, timeSpan);
       }
     }
+
+    this.isEndGame();
   }
 
 
 
   render() {
     console.log(this.state.boxesArr)
+
     return (
-      this.props.cards === 0 ?
-        <div className="card bg-danger text-light h5 text-center">
-          <div className="card-body">
-            Nothing to display. Choose number of cards
-        </div>
-        </div>
+      this.state.endGame ?
+        (
+          <div className="card bg-success text-light h5 text-center">
+            <div className="card-body">
+              End Game
+            </div>
+          </div>
+        )
         :
-        <div className="playBoard">
-          {
-            this.state.boxesArr.map(box =>
-              <Box
-                key={box.id}
-                {...box}
-                openCards={this.openCards}
-              />)
-          }
-        </div>
+        (this.props.cards === 0 ?
+          <div className="card bg-danger text-light h5 text-center">
+            <div className="card-body">
+              Nothing to display. Choose number of cards
+            </div>
+          </div>
+          :
+          <div className="playBoard">
+            {
+              this.state.boxesArr.map(box =>
+                <Box
+                  key={box.id}
+                  {...box}
+                  openCards={this.openCards}
+                />)
+            }
+          </div>)
     );
   }
 }
