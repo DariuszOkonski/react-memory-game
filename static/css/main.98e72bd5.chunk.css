@@ -1,0 +1,2 @@
+*,:after,:before{margin:0;padding:0;box-sizing:border-box}body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;width:100%}.playBoard{margin:1rem auto;padding:.2rem;width:260px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:.2rem;gap:.2rem}.box,.playBoard{border:1px solid #000}.box{width:60px;height:60px;cursor:pointer;box-sizing:border-box}@media(min-width:1025px){.playBoard{padding:.3rem;width:520px}.box{width:120px;height:120px}}
+/*# sourceMappingURL=main.98e72bd5.chunk.css.map */
