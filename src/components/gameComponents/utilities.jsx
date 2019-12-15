@@ -10,8 +10,8 @@ const createBoxes = (boxesNumber) => {
     boxesArr.push({ id: uuid(), color: colors[index], displayBg: true, clickable: true, visible: true });
   }
 
-  // return shuffle(boxesArr);
-  return boxesArr;
+  return shuffle(boxesArr);
+  // return boxesArr;
 }
 
 const shuffle = (arr) => {
