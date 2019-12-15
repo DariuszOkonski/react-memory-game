@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Results from './gameComponents/Results';
 import Cards from './gameComponents/Cards';
 import Boxes from './gameComponents/Boxes';
-import ButtonReset from './gameComponents/ButtonReset';
 
 const Game = ({ cards }) => {
   const [steps, setSteps] = useState(0);

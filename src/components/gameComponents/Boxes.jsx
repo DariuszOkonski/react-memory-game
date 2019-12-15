@@ -1,4 +1,4 @@
-import React, { Component, createContext } from 'react';
+import React, { Component } from 'react';
 import Box from './Box';
 import { createBoxes } from './utilities';
 import ButtonReset from './ButtonReset';
