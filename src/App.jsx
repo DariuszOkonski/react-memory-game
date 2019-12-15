@@ -27,6 +27,7 @@ function App() {
           </Switch>
         </section>
 
+        <div style={{ marginBottom: '4rem' }}></div>
         <Footer />
       </BrowserRouter>
     </div>
