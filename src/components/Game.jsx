@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Results from './gameComponents/Results';
 import Cards from './gameComponents/Cards';
 import Boxes from './gameComponents/Boxes';
 import ButtonReset from './gameComponents/ButtonReset';
 
 const Game = ({ cards }) => {
+  const [steps, setSteps] = useState(0);
+
+  const handleIncreaseSteps = () => {
+    setSteps(steps + 1);
+  }
+
   return (
     <div>
 
-      <Results />
+      <Results steps={steps} />
       <Cards />
 
-      <Boxes cards={cards} />
+      <Boxes cards={cards} increaseSteps={handleIncreaseSteps} />
 
       <ButtonReset cards={cards} />
     </div>
