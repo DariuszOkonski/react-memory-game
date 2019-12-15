@@ -14,7 +14,7 @@ function App() {
         <Navigation />
         <div style={{ marginTop: '4rem' }}></div>
 
-        <section style={{ backgroundColor: 'yellow' }} className="container mt-4">
+        <section className="container mt-4">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/game" component={() => <Game cards={0} />} />
