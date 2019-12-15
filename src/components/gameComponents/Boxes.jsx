@@ -128,10 +128,7 @@ class Boxes extends Component {
     this.isEndGame();
   }
 
-
-
   render() {
-    console.log(this.state.boxesArr)
 
     return (
       this.state.endGame ?
