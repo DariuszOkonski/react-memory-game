@@ -13,11 +13,13 @@ const Game = ({ cards }) => {
 
   return (
     <div>
-
       <Results steps={steps} />
       <Cards />
 
-      <Boxes cards={cards} increaseSteps={handleIncreaseSteps} />
+      <Boxes
+        cards={cards}
+        increaseSteps={handleIncreaseSteps}
+      />
 
       <ButtonReset cards={cards} />
     </div>
